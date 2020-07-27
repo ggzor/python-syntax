@@ -384,6 +384,21 @@ endif
 
 if s:Enabled('g:python_highlight_builtin_types')
     syn match pythonBuiltinType    '\v\.@<!<%(object|bool|int|float|tuple|str|list|dict|set|frozenset|bytearray|bytes)>'
+
+    " Special typing primitives
+    syn match pythonBuiltinType    '\v<%(Any|Callable|ClassVar|Generic|Optional|Tuple|Type|TypeVar|Union)>'
+
+    " ABCs (from collections.abc).
+    syn match pythonBuiltinType    '\v<%(AbstractSet|ByteString|Container|ContextManager|Hashable|ItemsView|Iterable|Iterator|KeysView|Mapping|MappingView|MutableMapping|MutableSequence|MutableSet|Sequence|Sized|ValuesView|Awaitable|AsyncIterator|AsyncIterable|Coroutine|Collection|AsyncGenerator|AsyncContextManager)>'
+
+    " Structural checks, a.k.a. protocols.
+    syn match pythonBuiltinType    '\v<%(Reversible|SupportsAbs|SupportsBytes|SupportsComplex|SupportsFloat|SupportsInt|SupportsRound)>'
+
+    " Concrete collection types.
+    syn match pythonBuiltinType    '\v<%(Counter|Deque|Dict|DefaultDict|List|Set|FrozenSet|NamedTuple|Generator)>'
+
+    " One-off things.
+    syn match pythonBuiltinType    '\v<%(AnyStr|cast|get_type_hints|NewType|no_type_check|no_type_check_decorator|NoReturn|overload|Text|TYPE_CHECKING)>'
 endif
 
 
